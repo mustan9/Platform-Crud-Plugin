@@ -18,13 +18,6 @@ App::uses('CrudBaseEvent', 'Crud.Controller/Event');
 class TranslationsEvent extends CrudBaseEvent {
 
 /**
- * Configurations for TranslationsEvent
- *
- * @var array
- */
-	protected $_config = array();
-
-/**
  * _defaults
  *
  * `domain` the translation domain to be used
@@ -99,43 +92,6 @@ class TranslationsEvent extends CrudBaseEvent {
 		if ($config) {
 			$this->config($config);
 		}
-	}
-
-/**
- * Generic config method
- *
- * If $key is an array and $value is empty,
- * $key will be merged directly with $this->_config
- *
- * If $key is a string it will be passed into Hash::insert
- *
- * @param mixed $key
- * @param mixed $value
- * @return TranslationsEvent
- */
-	public function config($key = null, $value = null) {
-		if (is_null($key) && is_null($value)) {
-			return $this->_config;
-		}
-
-		if (empty($value)) {
-			if (is_array($key)) {
-				$this->_config = Hash::merge($this->_config, $key);
-				return $this->_config;
-			}
-
-			return Hash::get($this->_config, $key);
-		}
-
-		if (is_array($value)) {
-			$merge = Hash::get($this->_config, $key);
-			if ($merge) {
-				$value += $merge;
-			}
-		}
-
-		$this->_config = Hash::insert($this->_config, $key, $value);
-		return $this;
 	}
 
 	public function getDefaults() {
