@@ -52,9 +52,9 @@ class SearchListener extends CrudBaseEvent {
  */
 	public function implementedEvents() {
 		return array(
-			'Crud.init'				=> array('callable' => 'init'),
-			'Crud.beforePaginate'	=> array('callable' => 'beforePaginate'),
-			'Crud.setFlash'			=> array('callable' => 'setFlash'),
+			'Crud.init' => array('callable' => 'init'),
+			'Crud.beforePaginate' => array('callable' => 'beforePaginate'),
+			'Crud.setFlash' => array('callable' => 'setFlash'),
 		);
 	}
 

@@ -99,6 +99,18 @@ class TranslationsEvent extends CrudBaseEvent {
 	}
 
 /**
+ * Returns a list of all events that will fire in the controller during it's lifecycle.
+ * You can override this function to add you own listener callbacks
+ *
+ * @return array
+ */
+	public function implementedEvents() {
+		return array(
+			'Crud.setFlash'	=> array('callable' => 'setFlash')
+		);
+	}
+
+/**
  * SetFlash Crud Event callback
  *
  * @throws CakeException if called with invalid args
